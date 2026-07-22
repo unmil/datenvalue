@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum — Datenvalue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:    #0b0c0f;
+    --ink2:   #12141a;
+    --gold:   #c8a96e;
+    --silver: #8b96a8;
+    --white:  #f0eeea;
+    --white2: #c8c4bc;
+    --serif:  'DM Sans', system-ui, sans-serif;
+    --mono:   'DM Mono', 'Courier New', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--serif);
+    background: var(--ink);
+    color: var(--white);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 3rem;
+    border-bottom: 1px solid rgba(200,169,110,.12);
+    background: rgba(11,12,15,.9);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo { font-size: 1.1rem; font-weight: 500; color: var(--white); }
+  .nav-logo span { color: var(--gold); }
+  .nav-back { font-size: .82rem; color: var(--silver); letter-spacing: .06em; }
+  .nav-back:hover { color: var(--gold); text-decoration: none; }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 5rem 3rem 7rem;
+  }
+
+  .page-label {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: -.02em;
+    margin-bottom: .5rem;
+  }
+  .page-sub {
+    font-size: .9rem;
+    color: var(--silver);
+    font-weight: 300;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(200,169,110,.14);
+  }
+
+  .block {
+    margin-bottom: 2.8rem;
+  }
+  .block-label {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .9rem;
+  }
+  .block-content {
+    font-size: .92rem;
+    font-weight: 300;
+    color: var(--white2);
+    line-height: 1.8;
+  }
+  .block-content p + p { margin-top: .6rem; }
+  .placeholder {
+    color: var(--silver);
+    font-style: italic;
+    font-size: .88rem;
+  }
+
+  hr.rule {
+    border: none;
+    border-top: 1px solid rgba(200,169,110,.12);
+    margin: 3rem 0;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 3rem;
+    font-size: .78rem;
+    color: var(--silver);
+    border-top: 1px solid rgba(200,169,110,.1);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 1.2rem 1.5rem; }
+    main { padding: 3rem 1.5rem 5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Daten<span>value</span></a>
+  <a href="/" class="nav-back">← Back to site</a>
+</nav>
+
+<main>
+  <p class="page-label">Legal disclosure</p>
+  <h1>Impressum</h1>
+  <p class="page-sub">Offenlegung gemäß § 25 MedienG &amp; § 5 ECG · Disclosure pursuant to Austrian Media Act and E-Commerce Act</p>
+
+  <!-- UNTERNEHMENSINHABER -->
+  <div class="block">
+    <p class="block-label">Unternehmensinhaber / Business owner</p>
+    <div class="block-content">
+      <p>Unmil Karadkar</p>
+      <p><span class="placeholder">[Straße und Hausnummer — nach Anmeldung ergänzen]</span></p>
+      <p><span class="placeholder">[PLZ] Graz, Österreich</span></p>
+    </div>
+  </div>
+
+  <!-- UNTERNEHMENSGEGENSTAND -->
+  <div class="block">
+    <p class="block-label">Unternehmensgegenstand / Business activity</p>
+    <div class="block-content">
+      <p>Datenarchitektur, Wissensengineering, semantische Datenmodellierung, Metadatenstrategie, Ontologiedesign, Daten-Governance und verwandte Beratungsleistungen.</p>
+      <p><em>Data architecture, knowledge engineering, semantic data modelling, metadata strategy, ontology design, data governance and related consulting services.</em></p>
+    </div>
+  </div>
+
+  <!-- RECHTSFORM & GEWERBE -->
+  <div class="block">
+    <p class="block-label">Rechtsform &amp; Gewerbe / Legal form &amp; trade</p>
+    <div class="block-content">
+      <p>Einzelunternehmen (freies Gewerbe — IT-Dienstleistungen)</p>
+      <p>Behörde gemäß ECG: <span class="placeholder">[zuständige Bezirkshauptmannschaft / Magistrat Graz — nach Gewerbeanmeldung ergänzen]</span></p>
+      <p>Mitglied der: Wirtschaftskammer Österreich (WKO), Fachgruppe Unternehmensberatung, Buchhaltung und Informationstechnologie (UBIT)</p>
+      <p>Berufsrecht: Gewerbeordnung 1994 (GewO) — abrufbar unter <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">www.ris.bka.gv.at</a></p>
+    </div>
+  </div>
+
+  <!-- STEUER -->
+  <div class="block">
+    <p class="block-label">Steuer- &amp; UID-Nummer / Tax numbers</p>
+    <div class="block-content">
+      <p>Steuernummer: <span class="placeholder">[nach Vergabe durch Finanzamt ergänzen]</span></p>
+      <p>UID-Nummer (falls zutreffend): <span class="placeholder">ATU [nach Vergabe ergänzen]</span></p>
+    </div>
+  </div>
+
+  <!-- KONTAKT -->
+  <div class="block">
+    <p class="block-label">Kontakt / Contact</p>
+    <div class="block-content">
+      <p>E-Mail: <a href="mailto:hello@datenvalue.com">hello@datenvalue.com</a></p>
+      <p>Web: <a href="https://www.datenvalue.com">www.datenvalue.com</a></p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- MEDIENGESETZ -->
+  <div class="block">
+    <p class="block-label">Offenlegung gemäß § 25 Mediengesetz</p>
+    <div class="block-content">
+      <p><strong>Medieninhaber und Herausgeber:</strong><br>
+      Unmil Karadkar, <span class="placeholder">[Adresse]</span>, Graz, Österreich</p>
+      <p><strong>Unternehmensgegenstand:</strong><br>
+      Beratung im Bereich Datenarchitektur, Wissensengineering, semantische Datenmodellierung und Daten-Governance.</p>
+      <p><strong>Grundlegende Richtung des Mediums:</strong><br>
+      Diese Website dient der Darstellung des Leistungsangebots von Datenvalue und der Kontaktaufnahme mit potenziellen Auftraggebern. Alle Inhalte sind werblicher Natur und dienen der Eigendarstellung des Unternehmens.</p>
+    </div>
+  </div>
+
+  <!-- HAFTUNG -->
+  <div class="block">
+    <p class="block-label">Haftungsausschluss / Disclaimer</p>
+    <div class="block-content">
+      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Datenvalue übernimmt jedoch keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte.</p>
+      <p>Als Diensteanbieter ist Datenvalue gemäß § 17 ECG für eigene Inhalte auf dieser Website nach den allgemeinen Gesetzen verantwortlich.</p>
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div class="block">
+    <p class="block-label">Externe Links / External links</p>
+    <div class="block-content">
+      <p>Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte Datenvalue keinen Einfluss hat. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.</p>
+    </div>
+  </div>
+
+  <!-- URHEBERRECHT -->
+  <div class="block">
+    <p class="block-label">Urheberrecht / Copyright</p>
+    <div class="block-content">
+      <p>Die durch Datenvalue erstellten Inhalte und Werke auf dieser Website unterliegen dem österreichischen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.</p>
+    </div>
+  </div>
+
+  <!-- DATENSCHUTZ -->
+  <div class="block">
+    <p class="block-label">Datenschutz / Privacy</p>
+    <div class="block-content">
+      <p>Diese Website erhebt keine personenbezogenen Daten ohne Ihre ausdrückliche Zustimmung. Das Kontaktformular öffnet Ihren lokalen E-Mail-Client und überträgt keine Daten an einen Server dieser Website.</p>
+      <p><em>This website does not collect personal data without your explicit consent. The contact form opens your local email client and transmits no data to this website's servers.</em></p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 Datenvalue — Unmil Karadkar, Graz, Austria
+</footer>
+
+</body>
+</html>
