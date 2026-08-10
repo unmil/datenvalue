@@ -128,12 +128,13 @@ a { color:inherit; text-decoration:none; }
   font-size:clamp(2rem,12vw,12rem);
   font-weight:300;
   letter-spacing:.14em;
-  text-transform:uppercase;
   line-height:.88;
   color:var(--tx1);
   opacity:0;
   animation:up .9s ease forwards .45s;
 }
+.hn-d { color:var(--gold); }
+.hn-v { color:var(--tx1); }
 .hero-bar {
   width:1px; height:52px;
   background:linear-gradient(to bottom,var(--gold),transparent);
@@ -506,7 +507,9 @@ footer {
   .hero-name { letter-spacing:.06em; }
   .hero-sub { letter-spacing:.18em; font-size:.75rem; }
   .hero-tag { letter-spacing:.14em; font-size:.62rem; }
-  .hero-bar { margin:1.75rem auto; height:36px; }
+  .hn-d { color:var(--gold); }
+.hn-v { color:var(--tx1); }
+.hero-bar { margin:1.75rem auto; height:36px; }
   .hero-mark svg { width:36px; height:44px; }
   .hero-pills { gap:.5rem; margin-top:2rem; }
   .pill { font-size:.58rem; padding:.28rem .65rem; }
@@ -571,7 +574,7 @@ footer {
         </svg>
       </div>
       <p class="hero-tag">Semantic Data Architecture &nbsp;·&nbsp; Graz, Austria</p>
-    <h1 class="hero-name">Datenvalue</h1>
+    <h1 class="hero-name"><span class="hn-d">Daten</span><span class="hn-v">Value</span></h1>
     <div class="hero-bar"></div>
     <p class="hero-sub">True&nbsp;Data &nbsp;·&nbsp; Intelligent&nbsp;Systems</p>
     <div class="hero-pills">
