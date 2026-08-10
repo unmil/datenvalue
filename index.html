@@ -125,7 +125,7 @@ a { color:inherit; text-decoration:none; }
 }
 .hero-name {
   font-family:var(--fd);
-  font-size:clamp(4.5rem,15vw,12rem);
+  font-size:clamp(2rem,12vw,12rem);
   font-weight:300;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -503,6 +503,19 @@ footer {
   .srv-grid { grid-template-columns:1fr; }
   .about-grid, .contact-grid { grid-template-columns:1fr; gap:3rem; }
   footer { padding:1.5rem 1.25rem; flex-direction:column; align-items:flex-start; }
+  .hero-name { letter-spacing:.06em; }
+  .hero-sub { letter-spacing:.18em; font-size:.75rem; }
+  .hero-tag { letter-spacing:.14em; font-size:.62rem; }
+  .hero-bar { margin:1.75rem auto; height:36px; }
+  .hero-mark svg { width:36px; height:44px; }
+  .hero-pills { gap:.5rem; margin-top:2rem; }
+  .pill { font-size:.58rem; padding:.28rem .65rem; }
+}
+@media (max-width:420px) {
+  .hero-name { letter-spacing:.04em; }
+  .hero-sub { letter-spacing:.12em; }
+  .hero-tag { display:none; }
+  .hero-mark { margin-bottom:1.25rem; }
 }
 @media (prefers-reduced-motion:reduce) {
   *,*::before,*::after { animation:none !important; transition-duration:0.01ms !important; }
