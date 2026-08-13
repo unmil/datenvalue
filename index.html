@@ -68,13 +68,13 @@ a { color:inherit; text-decoration:none; }
   font-family:var(--fd);
   font-size:1.15rem;
   font-weight:300;
-  letter-spacing:.22em;
+  letter-spacing:.08em;
   color:var(--tx1);
   display:flex;
   align-items:center;
   gap:10px;
 }
-.nav-logo .hn-d { margin-right:-.22em; }
+.nav-logo .hn-d { margin-right:-.08em; }
 .nav-links { display:flex; gap:2.5rem; list-style:none; }
 .nav-links a {
   font-family:var(--fb);
@@ -127,7 +127,7 @@ a { color:inherit; text-decoration:none; }
   font-family:var(--fd);
   font-size:clamp(2rem,12vw,12rem);
   font-weight:200;
-  letter-spacing:.20em;
+  letter-spacing:.05em;
   line-height:.88;
   color:var(--tx1);
   opacity:0;
@@ -135,6 +135,19 @@ a { color:inherit; text-decoration:none; }
 }
 .hn-d { color:var(--gold); }
 .hn-v { color:var(--tx1); }
+/* Hero title gradient text — scoped to hero only, not nav/footer */
+.hero-name .hn-d {
+  background:linear-gradient(135deg,#EDD070 0%,#C4A35A 45%,#8A6020 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-name .hn-v {
+  background:linear-gradient(135deg,#F8F4EE 0%,#C8C4BC 50%,#706C68 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 .hero-bar {
   width:1px; height:52px;
   background:linear-gradient(to bottom,var(--gold),transparent);
@@ -465,7 +478,7 @@ footer {
   font-family:var(--fd);
   font-size:.9rem;
   font-weight:300;
-  letter-spacing:.14em;
+  letter-spacing:.06em;
   color:var(--tx3);
 }
 .f-note {
@@ -503,7 +516,7 @@ footer {
   .srv-grid { grid-template-columns:1fr; }
   .about-grid, .contact-grid { grid-template-columns:1fr; gap:3rem; }
   footer { padding:1.5rem 1.25rem; flex-direction:column; align-items:flex-start; }
-  .hero-name { letter-spacing:.06em; }
+  .hero-name { letter-spacing:.02em; }
   .hero-sub { letter-spacing:.18em; font-size:.75rem; }
   .hero-tag { letter-spacing:.14em; font-size:.62rem; }
   .hero-bar { margin:1.75rem auto; height:36px; }
