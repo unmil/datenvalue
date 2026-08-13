@@ -1,24 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Dark square background with rounded corners -->
   <rect width="64" height="64" rx="6" fill="#0A0C0E"/>
-  <!-- DV mark centered: translate(6,0) centres 52-wide mark in 64px -->
+  <defs>
+    <linearGradient id="fg1" x1="15" y1="8" x2="48" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EDD070"/><stop offset="100%" stop-color="#8A6020"/>
+    </linearGradient>
+    <linearGradient id="fg2" x1="15" y1="8" x2="48" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F8F4EE"/><stop offset="100%" stop-color="#808070"/>
+    </linearGradient>
+  </defs>
   <g transform="translate(6,0)">
-    <!-- D lines (gold) -->
-    <line x1="9" y1="8"  x2="30" y2="8"  stroke="#C4A35A" stroke-width="4.5" stroke-linecap="round"/>
-    <line x1="30" y1="8"  x2="42" y2="20" stroke="#C4A35A" stroke-width="4.5" stroke-linecap="round"/>
-    <line x1="42" y1="20" x2="42" y2="44" stroke="#C4A35A" stroke-width="4.5" stroke-linecap="round"/>
-    <line x1="42" y1="44" x2="30" y2="56" stroke="#C4A35A" stroke-width="4.5" stroke-linecap="round"/>
-    <line x1="30" y1="56" x2="9"  y2="56" stroke="#C4A35A" stroke-width="4.5" stroke-linecap="round"/>
-    <!-- V lines (off-white) -->
-    <line x1="9"  y1="8"  x2="9"  y2="56" stroke="#D6D0C6" stroke-width="4.5" stroke-linecap="round"/>
-    <line x1="9"  y1="56" x2="42" y2="20" stroke="#D6D0C6" stroke-width="4.5" stroke-linecap="round"/>
-    <!-- Hollow nodes (D) -->
-    <circle cx="30" cy="8"  r="4.5" fill="none" stroke="#C4A35A" stroke-width="2.5"/>
-    <circle cx="42" cy="44" r="4.5" fill="none" stroke="#C4A35A" stroke-width="2.5"/>
-    <circle cx="30" cy="56" r="4.5" fill="none" stroke="#C4A35A" stroke-width="2.5"/>
-    <!-- Filled nodes (V, off-white) -->
-    <circle cx="9"  cy="8"  r="5.5" fill="#D6D0C6"/>
-    <circle cx="9"  cy="56" r="5.5" fill="#D6D0C6"/>
-    <circle cx="42" cy="20" r="5.5" fill="#D6D0C6"/>
+    <line x1="9" y1="8"  x2="30" y2="8"  stroke="url(#fg1)" stroke-width="3.3" stroke-linecap="round"/>
+    <line x1="30" y1="8"  x2="42" y2="20" stroke="url(#fg1)" stroke-width="3.3" stroke-linecap="round"/>
+    <line x1="42" y1="20" x2="42" y2="44" stroke="url(#fg1)" stroke-width="3.3" stroke-linecap="round"/>
+    <line x1="42" y1="44" x2="30" y2="56" stroke="url(#fg1)" stroke-width="3.3" stroke-linecap="round"/>
+    <line x1="30" y1="56" x2="9"  y2="56" stroke="url(#fg1)" stroke-width="3.3" stroke-linecap="round"/>
+    <line x1="9"  y1="8"  x2="9"  y2="56" stroke="url(#fg2)" stroke-width="3.3" stroke-linecap="round"/>
+    <line x1="9"  y1="56" x2="42" y2="20" stroke="url(#fg2)" stroke-width="3.3" stroke-linecap="round"/>
+    <circle cx="30" cy="8"  r="4.5" fill="none" stroke="url(#fg1)" stroke-width="2"/>
+    <circle cx="42" cy="44" r="4.5" fill="none" stroke="url(#fg1)" stroke-width="2"/>
+    <circle cx="30" cy="56" r="4.5" fill="none" stroke="url(#fg1)" stroke-width="2"/>
+    <circle cx="9"  cy="8"  r="5.5" fill="#F0EDE6"/>
+    <circle cx="9"  cy="56" r="5.5" fill="#F0EDE6"/>
+    <circle cx="42" cy="20" r="5.5" fill="#F0EDE6"/>
   </g>
 </svg>
