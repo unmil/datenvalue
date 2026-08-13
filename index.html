@@ -527,19 +527,30 @@ footer {
 <!-- NAV -->
 <nav id="nav">
   <a href="#home" class="nav-logo"><svg width="16" height="20" viewBox="0 0 52 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0">
-      <line x1="9" y1="8"  x2="30" y2="8"  stroke="#C4A35A" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="30" y1="8"  x2="42" y2="20" stroke="#C4A35A" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="42" y1="20" x2="42" y2="44" stroke="#C4A35A" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="42" y1="44" x2="30" y2="56" stroke="#C4A35A" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="30" y1="56" x2="9"  y2="56" stroke="#C4A35A" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="9"  y1="8"  x2="9"  y2="56" stroke="#D6D0C6" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="9"  y1="56" x2="42" y2="20" stroke="#D6D0C6" stroke-width="3.5" stroke-linecap="round"/>
-      <circle cx="30" cy="8"  r="4.5" fill="none" stroke="#C4A35A" stroke-width="2.5"/>
-      <circle cx="42" cy="44" r="4.5" fill="none" stroke="#C4A35A" stroke-width="2.5"/>
-      <circle cx="30" cy="56" r="4.5" fill="none" stroke="#C4A35A" stroke-width="2.5"/>
-      <circle cx="9"  cy="8"  r="5.2" fill="#D6D0C6"/>
-      <circle cx="9"  cy="56" r="5.2" fill="#D6D0C6"/>
-      <circle cx="42" cy="20" r="5.2" fill="#D6D0C6"/>
+      <defs>
+        <linearGradient id="ng1" x1="9" y1="8" x2="42" y2="56" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#EDD070"/><stop offset="100%" stop-color="#8A6020"/>
+        </linearGradient>
+        <linearGradient id="ng2" x1="9" y1="8" x2="42" y2="56" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#F8F4EE"/><stop offset="100%" stop-color="#706C68"/>
+        </linearGradient>
+        <radialGradient id="ng3" cx="35%" cy="28%" r="65%">
+          <stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#B0A898"/>
+        </radialGradient>
+      </defs>
+      <line x1="9" y1="8"  x2="30" y2="8"  stroke="url(#ng1)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="30" y1="8"  x2="42" y2="20" stroke="url(#ng1)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="42" y1="20" x2="42" y2="44" stroke="url(#ng1)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="42" y1="44" x2="30" y2="56" stroke="url(#ng1)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="30" y1="56" x2="9"  y2="56" stroke="url(#ng1)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="9"  y1="8"  x2="9"  y2="56" stroke="url(#ng2)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="9"  y1="56" x2="42" y2="20" stroke="url(#ng2)" stroke-width="3.3" stroke-linecap="round"/>
+      <circle cx="30" cy="8"  r="4"   fill="none" stroke="url(#ng1)" stroke-width="2"/>
+      <circle cx="42" cy="44" r="4"   fill="none" stroke="url(#ng1)" stroke-width="2"/>
+      <circle cx="30" cy="56" r="4"   fill="none" stroke="url(#ng1)" stroke-width="2"/>
+      <circle cx="9"  cy="8"  r="5"   fill="url(#ng3)"/>
+      <circle cx="9"  cy="56" r="5"   fill="url(#ng3)"/>
+      <circle cx="42" cy="20" r="5"   fill="url(#ng3)"/>
     </svg>
   <span class="hn-d">Daten</span><span class="hn-v">Value</span></a>
   <ul class="nav-links">
@@ -555,19 +566,34 @@ footer {
   <div class="hero-inner">
     <div class="hero-mark" style="opacity:0;animation:fade .8s ease forwards 0s;margin-bottom:1.75rem">
         <svg width="52" height="64" viewBox="0 0 52 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <line x1="9" y1="8"  x2="30" y2="8"  stroke="#C4A35A" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="30" y1="8"  x2="42" y2="20" stroke="#C4A35A" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="42" y1="20" x2="42" y2="44" stroke="#C4A35A" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="42" y1="44" x2="30" y2="56" stroke="#C4A35A" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="30" y1="56" x2="9"  y2="56" stroke="#C4A35A" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="9"  y1="8"  x2="9"  y2="56" stroke="#D6D0C6" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="9"  y1="56" x2="42" y2="20" stroke="#D6D0C6" stroke-width="2.2" stroke-linecap="round"/>
-          <circle cx="30" cy="8"  r="3.4" fill="none" stroke="#C4A35A" stroke-width="1.8"/>
-          <circle cx="42" cy="44" r="3.4" fill="none" stroke="#C4A35A" stroke-width="1.8"/>
-          <circle cx="30" cy="56" r="3.4" fill="none" stroke="#C4A35A" stroke-width="1.8"/>
-          <circle cx="9"  cy="8"  r="4.2" fill="#D6D0C6"/>
-          <circle cx="9"  cy="56" r="4.2" fill="#D6D0C6"/>
-          <circle cx="42" cy="20" r="4.2" fill="#D6D0C6"/>
+          <defs>
+            <linearGradient id="hg1" x1="9" y1="8" x2="42" y2="56" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#EDD070"/><stop offset="100%" stop-color="#8A6020"/>
+            </linearGradient>
+            <linearGradient id="hg2" x1="9" y1="8" x2="42" y2="56" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#F8F4EE"/><stop offset="100%" stop-color="#706C68"/>
+            </linearGradient>
+            <radialGradient id="hg3" cx="35%" cy="28%" r="65%">
+              <stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#B0A898"/>
+            </radialGradient>
+            <filter id="hgf" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="1.8" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <line x1="9" y1="8"  x2="30" y2="8"  stroke="url(#hg1)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="30" y1="8"  x2="42" y2="20" stroke="url(#hg1)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="42" y1="20" x2="42" y2="44" stroke="url(#hg1)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="42" y1="44" x2="30" y2="56" stroke="url(#hg1)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="30" y1="56" x2="9"  y2="56" stroke="url(#hg1)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="9"  y1="8"  x2="9"  y2="56" stroke="url(#hg2)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="9"  y1="56" x2="42" y2="20" stroke="url(#hg2)" stroke-width="3.3" stroke-linecap="round"/>
+          <circle cx="30" cy="8"  r="4"   fill="none" stroke="url(#hg1)" stroke-width="2"/>
+          <circle cx="42" cy="44" r="4"   fill="none" stroke="url(#hg1)" stroke-width="2"/>
+          <circle cx="30" cy="56" r="4"   fill="none" stroke="url(#hg1)" stroke-width="2"/>
+          <circle cx="9"  cy="8"  r="5"   fill="url(#hg3)" filter="url(#hgf)"/>
+          <circle cx="9"  cy="56" r="5"   fill="url(#hg3)" filter="url(#hgf)"/>
+          <circle cx="42" cy="20" r="5"   fill="url(#hg3)" filter="url(#hgf)"/>
         </svg>
       </div>
       <p class="hero-tag">Semantic Data Architecture &nbsp;·&nbsp; Graz, Austria</p>
