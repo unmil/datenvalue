@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DatenValue — Semantische Datenarchitektur für KI</title>
+<meta name="description" content="Ontologie-Design, Wissensgraph-Architektur und KI-Daten-Governance. Datenarchitektur-Beratung von Datenvalue e.U. mit Sitz in Graz, Österreich.">
+<meta property="og:title" content="Datenvalue — Semantic Data Architecture for AI">
+<meta property="og:description" content="Wahre Daten. Intelligente Systeme.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.svg">
+<meta name="theme-color" content="#0A0C0E">
+<link rel="alternate" hreflang="en" href="https://www.datenvalue.com/index.html">
+<link rel="alternate" hreflang="de" href="https://www.datenvalue.com/index-de.html">
+<link rel="alternate" hreflang="x-default" href="https://www.datenvalue.com/index-de.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #0A0C0E;
+  --s1:       #111418;
+  --s2:       #181D24;
+  --br:       #232A34;
+  --br2:      #2E3847;
+  --gold:     #C4A35A;
+  --gold-dim: rgba(196,163,90,.12);
+  --gold-faint: rgba(196,163,90,.06);
+  --tx1:      #F2F0EB;
+  --tx2:      #8A9099;
+  --tx3:      #4C5360;
+  --fd:       'DM Sans', sans-serif;
+  --fb:       'DM Sans', sans-serif;
+  --fm:       'JetBrains Mono', monospace;
+  --mw:       1080px;
+  --nh:       60px;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--bg);
+  color:var(--tx1);
+  font-family:var(--fb);
+  font-weight:300;
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a { color:inherit; text-decoration:none; }
+::selection { background:rgba(196,163,90,.2); }
+
+/* NAV */
+#nav {
+  position:fixed; top:0; left:0; right:0;
+  height:var(--nh);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 2.5rem;
+  z-index:200;
+  transition:background .35s, border-color .35s, backdrop-filter .35s;
+  border-bottom:1px solid transparent;
+}
+#nav.scrolled {
+  background:rgba(10,12,14,.88);
+  border-color:var(--br);
+  backdrop-filter:blur(14px);
+}
+.nav-logo {
+  font-family:var(--fd);
+  font-size:1.15rem;
+  font-weight:300;
+  letter-spacing:.08em;
+  color:var(--tx1);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.nav-logo .hn-d { margin-right:-.08em; }
+.nav-links { display:flex; gap:2.5rem; list-style:none; }
+.nav-links a {
+  font-family:var(--fb);
+  font-size:.72rem;
+  font-weight:400;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--tx2);
+  transition:color .2s;
+}
+.nav-links a:hover { color:var(--gold); }
+.nav-cta {
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  border:1px solid rgba(196,163,90,.4);
+  color:var(--gold);
+  padding:.38rem 1rem;
+  transition:background .2s, border-color .2s;
+}
+.nav-cta:hover { background:var(--gold-dim); border-color:var(--gold); }
+
+/* HERO */
+#home {
+  position:relative;
+  min-height:100vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  padding:var(--nh) 2rem 0;
+  overflow:hidden;
+}
+#cv {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  pointer-events:none;
+}
+.hero-inner { position:relative; z-index:1; }
+.hero-tag {
+  font-family:var(--fm);
+  font-size:.68rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:2.25rem;
+  opacity:0;
+  animation:up .8s ease forwards .2s;
+}
+.hero-name {
+  font-family:var(--fd);
+  font-size:clamp(2rem,12vw,12rem);
+  font-weight:400;
+  letter-spacing:.05em;
+  line-height:.88;
+  color:var(--tx1);
+  opacity:0;
+  animation:up .9s ease forwards .45s;
+}
+.hn-d { color:var(--gold); }
+.hn-v { color:var(--tx1); }
+/* Hero title gradient text — scoped to hero only, not nav/footer */
+.hero-name .hn-d {
+  background:linear-gradient(135deg,#EDD070 0%,#C4A35A 45%,#8A6020 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-name .hn-v {
+  background:linear-gradient(135deg,#F8F4EE 0%,#C8C4BC 50%,#706C68 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-bar {
+  width:1px; height:52px;
+  background:linear-gradient(to bottom,var(--gold),transparent);
+  margin:2.75rem auto;
+  opacity:0;
+  animation:fade .6s ease forwards 1.05s;
+}
+.hero-sub {
+  font-family:var(--fb);
+  font-size:.82rem;
+  font-weight:300;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--tx2);
+  opacity:0;
+  animation:up .8s ease forwards 1.2s;
+}
+.hero-pills {
+  display:flex; flex-wrap:wrap; gap:.75rem;
+  justify-content:center;
+  margin-top:3rem;
+  opacity:0;
+  animation:up .8s ease forwards 1.55s;
+}
+.pill {
+  font-family:var(--fm);
+  font-size:.62rem;
+  letter-spacing:.1em;
+  color:rgba(196,163,90,.75);
+  border:1px solid rgba(196,163,90,.22);
+  padding:.35rem .9rem;
+}
+.scroll-hint {
+  position:absolute; bottom:2.5rem; left:50%;
+  transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.5rem;
+  opacity:0;
+  animation:fade 1s ease forwards 2.2s;
+}
+.scroll-hint span {
+  font-size:.58rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--tx3);
+}
+.scroll-hint i {
+  display:block; width:1px; height:38px;
+  background:linear-gradient(to bottom,var(--tx3),transparent);
+  animation:pulse 2.2s ease infinite;
+}
+
+/* SECTION COMMON */
+section { padding:7rem 2rem; }
+.wrap { max-width:var(--mw); margin:0 auto; }
+.eyebrow {
+  font-family:var(--fm);
+  font-size:.62rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1.1rem;
+}
+.sh {
+  font-family:var(--fd);
+  font-size:clamp(2rem,4.5vw,3.25rem);
+  font-weight:300;
+  letter-spacing:.02em;
+  line-height:1.1;
+  color:var(--tx1);
+}
+.sp {
+  font-size:.95rem;
+  color:var(--tx2);
+  line-height:1.85;
+  max-width:540px;
+}
+
+/* SERVICES */
+#services { background:var(--s1); }
+.srv-head { margin-bottom:3.75rem; }
+.srv-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  border:1px solid var(--br);
+  gap:1px;
+  background:var(--br);
+}
+.srv-card {
+  background:var(--s1);
+  padding:2.75rem;
+  position:relative;
+  transition:background .3s;
+  overflow:hidden;
+}
+.srv-card::after {
+  content:'';
+  position:absolute; top:0; left:0; right:0;
+  height:2px;
+  background:var(--gold);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .45s cubic-bezier(.4,0,.2,1);
+}
+.srv-card:hover { background:var(--s2); }
+.srv-card:hover::after { transform:scaleX(1); }
+.srv-no {
+  font-family:var(--fm);
+  font-size:.6rem;
+  letter-spacing:.18em;
+  color:var(--tx3);
+  margin-bottom:1.75rem;
+}
+.srv-title {
+  font-family:var(--fd);
+  font-size:1.5rem;
+  font-weight:400;
+  line-height:1.2;
+  color:var(--tx1);
+  margin-bottom:1rem;
+}
+.srv-desc {
+  font-size:.875rem;
+  color:var(--tx2);
+  line-height:1.8;
+}
+.srv-tags {
+  display:flex; flex-wrap:wrap; gap:.5rem;
+  margin-top:1.75rem;
+}
+.tag {
+  font-family:var(--fm);
+  font-size:.58rem;
+  letter-spacing:.1em;
+  color:var(--tx3);
+  border:1px solid var(--br);
+  padding:.22rem .6rem;
+  transition:border-color .2s, color .2s;
+}
+.srv-card:hover .tag { border-color:var(--br2); color:var(--tx2); }
+
+/* ABOUT */
+#about { background:var(--bg); }
+.about-grid {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:5rem;
+  align-items:start;
+}
+.about-body {
+  margin-top:2rem;
+  font-size:.95rem;
+  color:var(--tx2);
+  line-height:1.9;
+}
+.about-body p + p { margin-top:1.25rem; }
+.about-disc {
+  margin-top:2.75rem;
+  border-top:1px solid var(--br);
+  padding-top:2rem;
+}
+.disc-label {
+  font-family:var(--fm);
+  font-size:.6rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--tx3);
+  margin-bottom:1.1rem;
+}
+.disc-items { display:flex; flex-direction:column; gap:.65rem; }
+.disc-item {
+  font-size:.875rem;
+  color:var(--tx2);
+  display:flex; align-items:center; gap:.85rem;
+}
+.disc-item::before {
+  content:'';
+  display:block; width:18px; height:1px;
+  background:var(--gold);
+  flex-shrink:0;
+  opacity:.6;
+}
+.about-stats { display:flex; flex-direction:column; gap:2rem; }
+.stat {
+  border-left:2px solid var(--gold);
+  padding-left:1.75rem;
+}
+.stat-n {
+  font-family:var(--fd);
+  font-size:3.5rem;
+  font-weight:200;
+  line-height:1;
+  color:var(--tx1);
+  letter-spacing:-.01em;
+}
+.stat-l {
+  font-size:.75rem;
+  font-weight:300;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--tx2);
+  margin-top:.4rem;
+}
+.about-geo {
+  margin-top:3rem;
+  padding:1.75rem;
+  border:1px solid var(--br);
+  background:var(--s1);
+}
+.geo-label {
+  font-family:var(--fm);
+  font-size:.6rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--tx3);
+  margin-bottom:.6rem;
+}
+.geo-val {
+  font-family:var(--fd);
+  font-size:1.1rem;
+  font-weight:300;
+  color:var(--tx1);
+  letter-spacing:.04em;
+}
+
+/* CONTACT */
+#contact { background:var(--s1); }
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5rem;
+  align-items:start;
+}
+.contact-email {
+  display:block;
+  font-family:var(--fd);
+  font-size:clamp(1.1rem,2.2vw,1.65rem);
+  font-weight:300;
+  color:var(--gold);
+  letter-spacing:.03em;
+  margin-top:2rem;
+  border-bottom:1px solid rgba(196,163,90,.2);
+  padding-bottom:.75rem;
+  transition:color .2s;
+}
+.contact-email:hover { color:var(--tx1); }
+.contact-note {
+  font-size:.75rem;
+  color:var(--tx3);
+  letter-spacing:.08em;
+  margin-top:.65rem;
+}
+.contact-locs {
+  display:flex; flex-direction:column; gap:1.5rem;
+  margin-top:2.5rem;
+}
+.loc { display:flex; flex-direction:column; gap:.3rem; }
+.loc-k {
+  font-family:var(--fm);
+  font-size:.6rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--tx3);
+}
+.loc-v { font-size:.875rem; color:var(--tx2); }
+
+/* FORM */
+.form { display:flex; flex-direction:column; gap:1.25rem; }
+.fg { display:flex; flex-direction:column; gap:.45rem; }
+.fl {
+  font-family:var(--fm);
+  font-size:.58rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--tx3);
+}
+.fi, .ft {
+  background:var(--bg);
+  border:1px solid var(--br);
+  color:var(--tx1);
+  font-family:var(--fb);
+  font-size:.9rem;
+  font-weight:300;
+  padding:.8rem 1rem;
+  outline:none;
+  width:100%;
+  border-radius:0;
+  -webkit-appearance:none;
+  transition:border-color .2s;
+}
+.fi:focus, .ft:focus { border-color:rgba(196,163,90,.5); }
+.fi::placeholder, .ft::placeholder { color:var(--tx3); }
+.ft { resize:vertical; min-height:110px; }
+.fb-btn {
+  background:transparent;
+  border:1px solid rgba(196,163,90,.35);
+  color:var(--gold);
+  font-family:var(--fb);
+  font-size:.72rem;
+  font-weight:400;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  padding:.95rem 2.25rem;
+  cursor:pointer;
+  align-self:flex-start;
+  transition:background .25s, color .25s, border-color .25s;
+}
+.fb-btn:hover {
+  background:var(--gold);
+  color:var(--bg);
+  border-color:var(--gold);
+}
+.form-note {
+  font-size:.72rem;
+  color:var(--tx3);
+  letter-spacing:.05em;
+  line-height:1.5;
+}
+
+/* FOOTER */
+footer {
+  padding:1.75rem 2.5rem;
+  border-top:1px solid var(--br);
+  background:var(--bg);
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:1rem;
+}
+.f-brand {
+  font-family:var(--fd);
+  font-size:.9rem;
+  font-weight:300;
+  letter-spacing:.06em;
+  color:var(--tx3);
+}
+.f-note {
+  font-size:.68rem;
+  letter-spacing:.06em;
+  color:var(--tx3);
+}
+
+/* ANIMATIONS */
+@keyframes up {
+  from { opacity:0; transform:translateY(22px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes fade { from { opacity:0; } to { opacity:1; } }
+@keyframes pulse {
+  0%,100% { opacity:.25; }
+  50%      { opacity:.75; }
+}
+
+.rv {
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.rv.in { opacity:1; transform:none; }
+.rv-d1 { transition-delay:.1s; }
+.rv-d2 { transition-delay:.2s; }
+.rv-d3 { transition-delay:.3s; }
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  #nav { padding:0 1.25rem; }
+  .nav-links { display:none; }
+  section { padding:5rem 1.25rem; }
+  .srv-grid { grid-template-columns:1fr; }
+  .about-grid, .contact-grid { grid-template-columns:1fr; gap:3rem; }
+  footer { padding:1.5rem 1.25rem; flex-direction:column; align-items:flex-start; }
+  .hero-name { letter-spacing:.02em; }
+  .hero-sub { letter-spacing:.18em; font-size:.75rem; }
+  .hero-tag { letter-spacing:.14em; font-size:.62rem; }
+  .hero-bar { margin:1.75rem auto; height:36px; }
+  .hero-mark svg { width:36px; height:44px; }
+  .hero-pills { gap:.5rem; margin-top:2rem; }
+  .pill { font-size:.58rem; padding:.28rem .65rem; }
+}
+@media (max-width:420px) {
+  .hero-name { letter-spacing:.04em; }
+  .hero-sub { letter-spacing:.12em; }
+  .hero-tag { display:none; }
+  .hero-mark { margin-bottom:1.25rem; }
+}
+
+/* Language switcher */
+.lang-sw {
+  font-family:var(--fm);
+  font-size:.62rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--tx3);
+  border:1px solid var(--br);
+  padding:.28rem .72rem;
+  transition:color .2s, border-color .2s;
+  flex-shrink:0;
+}
+.lang-sw:hover { color:var(--gold); border-color:rgba(196,163,90,.4); }
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation:none !important; transition-duration:0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nav-logo"><svg width="16" height="20" viewBox="0 0 52 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0">
+      <defs>
+        <linearGradient id="ng1" x1="9" y1="8" x2="42" y2="56" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#EDD070"/><stop offset="100%" stop-color="#8A6020"/>
+        </linearGradient>
+        <linearGradient id="ng2" x1="9" y1="8" x2="42" y2="56" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#F8F4EE"/><stop offset="100%" stop-color="#706C68"/>
+        </linearGradient>
+        <radialGradient id="ng3" cx="35%" cy="28%" r="65%">
+          <stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#B0A898"/>
+        </radialGradient>
+      </defs>
+      <line x1="9" y1="8"  x2="30" y2="8"  stroke="url(#ng1)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="30" y1="8"  x2="42" y2="20" stroke="url(#ng1)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="42" y1="20" x2="42" y2="44" stroke="url(#ng1)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="42" y1="44" x2="30" y2="56" stroke="url(#ng1)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="30" y1="56" x2="9"  y2="56" stroke="url(#ng1)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="9"  y1="8"  x2="9"  y2="56" stroke="url(#ng2)" stroke-width="3.3" stroke-linecap="round"/>
+      <line x1="9"  y1="56" x2="42" y2="20" stroke="url(#ng2)" stroke-width="3.3" stroke-linecap="round"/>
+      <circle cx="30" cy="8"  r="4"   fill="none" stroke="url(#ng1)" stroke-width="2"/>
+      <circle cx="42" cy="44" r="4"   fill="none" stroke="url(#ng1)" stroke-width="2"/>
+      <circle cx="30" cy="56" r="4"   fill="none" stroke="url(#ng1)" stroke-width="2"/>
+      <circle cx="9"  cy="8"  r="5"   fill="url(#ng3)"/>
+      <circle cx="9"  cy="56" r="5"   fill="url(#ng3)"/>
+      <circle cx="42" cy="20" r="5"   fill="url(#ng3)"/>
+    </svg>
+  <span class="hn-d">Daten</span><span class="hn-v">Value</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Leistungen</a></li>
+    <li><a href="#about">Über mich</a></li>
+    <li><a href="#contact" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <a href="index.html" class="lang-sw" aria-label="English">EN</a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <canvas id="cv" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="hero-mark" style="opacity:0;animation:fade .8s ease forwards 0s;margin-bottom:1.75rem">
+        <svg width="52" height="64" viewBox="0 0 52 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="hg1" x1="9" y1="8" x2="42" y2="56" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#EDD070"/><stop offset="100%" stop-color="#8A6020"/>
+            </linearGradient>
+            <linearGradient id="hg2" x1="9" y1="8" x2="42" y2="56" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#F8F4EE"/><stop offset="100%" stop-color="#706C68"/>
+            </linearGradient>
+            <radialGradient id="hg3" cx="35%" cy="28%" r="65%">
+              <stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#B0A898"/>
+            </radialGradient>
+            <filter id="hgf" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="1.8" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <line x1="9" y1="8"  x2="30" y2="8"  stroke="url(#hg1)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="30" y1="8"  x2="42" y2="20" stroke="url(#hg1)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="42" y1="20" x2="42" y2="44" stroke="url(#hg1)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="42" y1="44" x2="30" y2="56" stroke="url(#hg1)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="30" y1="56" x2="9"  y2="56" stroke="url(#hg1)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="9"  y1="8"  x2="9"  y2="56" stroke="url(#hg2)" stroke-width="3.3" stroke-linecap="round"/>
+          <line x1="9"  y1="56" x2="42" y2="20" stroke="url(#hg2)" stroke-width="3.3" stroke-linecap="round"/>
+          <circle cx="30" cy="8"  r="4"   fill="none" stroke="url(#hg1)" stroke-width="2"/>
+          <circle cx="42" cy="44" r="4"   fill="none" stroke="url(#hg1)" stroke-width="2"/>
+          <circle cx="30" cy="56" r="4"   fill="none" stroke="url(#hg1)" stroke-width="2"/>
+          <circle cx="9"  cy="8"  r="5"   fill="url(#hg3)" filter="url(#hgf)"/>
+          <circle cx="9"  cy="56" r="5"   fill="url(#hg3)" filter="url(#hgf)"/>
+          <circle cx="42" cy="20" r="5"   fill="url(#hg3)" filter="url(#hgf)"/>
+        </svg>
+      </div>
+      <p class="hero-tag">Semantische Datenarchitektur &nbsp;·&nbsp; Graz, Österreich</p>
+    <h1 class="hero-name"><span class="hn-d">Daten</span><span class="hn-v">Value</span></h1>
+    <div class="hero-bar"></div>
+    <p class="hero-sub">Wahre&nbsp;Daten &nbsp;·&nbsp; Intelligente&nbsp;Systeme</p>
+    <div class="hero-pills">
+      <span class="pill">Ontologie-Design</span>
+      <span class="pill">Wissensgraphen</span>
+      <span class="pill">Daten-Governance</span>
+      <span class="pill">RAG-Architektur</span>
+      <span class="pill">KI-Agenten</span>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Scrollen</span>
+    <i></i>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="srv-head rv">
+      <p class="eyebrow">Leistungen</p>
+      <h2 class="sh">Die Arbeit, die KI-Systeme<br>vertrauenswürdig macht</h2>
+    </div>
+    <div class="srv-grid">
+
+      <div class="srv-card rv rv-d1">
+        <p class="srv-no">Schema &amp; Ontologie</p>
+        <h3 class="srv-title">Ontologie &amp;<br>Schema-Design</h3>
+        <p class="srv-desc">Die konzeptionellen Rahmenwerke entwerfen, die Ihren Daten Bedeutung verleihen. Entitätsmodelle, Beziehungsstrukturen, Taxonomien und Metadaten-Frameworks für graphbasiertes Reasoning und maschinelle Entdeckung — das Fundament, auf dem alles andere aufbaut.</p>
+        <div class="srv-tags">
+          <span class="tag">OWL</span><span class="tag">RDF</span><span class="tag">SHACL</span><span class="tag">SPARQL</span><span class="tag">Graphmodelle</span>
+        </div>
+      </div>
+
+      <div class="srv-card rv rv-d2">
+        <p class="srv-no">Qualität &amp; Governance</p>
+        <h3 class="srv-title">Datenqualität<br>&amp; Governance</h3>
+        <p class="srv-desc">Die Standards etablieren, die Ihre Daten vertrauenswürdig machen. Validierungsprozesse, Provenienz-Tracking, Auditierbarkeits-Frameworks und Compliance-Prüfungen, die regulatorische Anforderungen erfüllen und zuverlässige, erklärbare KI-Systeme ermöglichen.</p>
+        <div class="srv-tags">
+          <span class="tag">Provenienz</span><span class="tag">Auditierbarkeit</span><span class="tag">Compliance</span><span class="tag">Datenherkunft</span>
+        </div>
+      </div>
+
+      <div class="srv-card rv rv-d1">
+        <p class="srv-no">Klassifizierung &amp; Anreicherung</p>
+        <h3 class="srv-title">Entitätsauflösung<br>&amp; Anreicherung</h3>
+        <p class="srv-desc">Rohdaten in strukturiertes Wissen transformieren. Entitätsauflösung, Normalisierung, kontrollierte Vokabulare und Metadaten-Strategien, die sowohl menschliches Verständnis als auch maschinelles Reasoning unterstützen — aus Rauschen wird Signal.</p>
+        <div class="srv-tags">
+          <span class="tag">Entitätsauflösung</span><span class="tag">NER</span><span class="tag">Taxonomien</span><span class="tag">Vokabulare</span>
+        </div>
+      </div>
+
+      <div class="srv-card rv rv-d2">
+        <p class="srv-no">AI &amp; RAG</p>
+        <h3 class="srv-title">KI &amp; RAG<br>Datenarchitektur</h3>
+        <p class="srv-desc">Daten für die Systeme vorbereiten, die davon abhängen. Wissensdatenbanken, Graphen und Retrieval-Schichten so strukturieren, dass Ihre KI-Agenten, RAG-Pipelines und Sprachmodelle präzise arbeiten — und erklären können, was sie wissen und warum.</p>
+        <div class="srv-tags">
+          <span class="tag">RAG</span><span class="tag">Wissensgraphen</span><span class="tag">KI-Agenten</span><span class="tag">LLM-Verankerung</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="rv">
+        <p class="eyebrow">Über mich</p>
+        <h2 class="sh">Wo Präzision auf<br>Intelligenz trifft</h2>
+        <div class="about-body">
+          <p>DatenValue ist eine unabhängige Datenarchitektur-Praxis an der Schnittstelle von Ontologie-Engineering, semantischem Daten-Design und KI-Daten-Governance.</p>
+          <p>Mit über 20 Jahren Erfahrung in der Strukturierung von Informationen für die Systeme, die davon abhängen, arbeite ich mit Organisationen zusammen, die KI-Systeme, Wissensgraphen und intelligente Datenpipelines entwickeln – dort, wo Datenqualität, Nachvollziehbarkeit und Governance unverzichtbar sind.</p>
+          <p>Aktuelle Projekte umfassen staatlich finanzierte KI- und Weltraumintelligenz-Programme, die eine robuste, auditierbare und maschinenlesbare Dateninfrastruktur erfordern.</p>
+        </div>
+        <div class="about-disc">
+          <p class="disc-label">Kernkompetenzen</p>
+          <div class="disc-items">
+            <div class="disc-item">Semantic Web &amp; Ontologie-Engineering</div>
+            <div class="disc-item">Wissensgraph-Architektur</div>
+            <div class="disc-item">Daten-Governance &amp; Provenienz-Frameworks</div>
+            <div class="disc-item">Entitätsauflösung &amp; Normalisierung</div>
+            <div class="disc-item">KI-bereite Datenarchitektur</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="about-stats rv rv-d1">
+          <div class="stat">
+            <div class="stat-n">20+</div>
+            <div class="stat-l">Jahre Erfahrung in der Datenarchitektur</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">4</div>
+            <div class="stat-l">Kernleistungsbereiche</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">∞</div>
+            <div class="stat-l">Korrekt aufgelöste Entitäten</div>
+          </div>
+        </div>
+        <div class="about-geo rv rv-d2">
+          <p class="geo-label">Ansässig in</p>
+          <p class="geo-val">Graz, Österreich</p>
+          <p class="geo-val" style="color:var(--tx2);font-size:.85rem;margin-top:.35rem;">Weltweit verfügbar &nbsp;·&nbsp; Remote-first</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="rv">
+        <p class="eyebrow">Kontakt</p>
+        <h2 class="sh">Gespräch<br>beginnen</h2>
+        <p class="sp" style="margin-top:1.5rem;">Projekte beginnen mit einem Erstgespräch, um Ihre Datenlandschaft, Systemziele und Governance-Anforderungen zu verstehen. Typische Projekte dauern 2–24 Monate.</p>
+        <a href="mailto:hello@datenvalue.at" class="contact-email">hello@datenvalue.at</a>
+        <p class="contact-note">Antwort innerhalb eines Werktages</p>
+        <div class="contact-locs">
+          <div class="loc">
+            <span class="loc-k">Standort</span>
+            <span class="loc-v">Graz, Österreich &nbsp;·&nbsp; Weltweit verfügbar</span>
+          </div>
+          <div class="loc">
+            <span class="loc-k">Verfügbarkeit</span>
+            <span class="loc-v">Begrenzte Kapazitäten &nbsp;·&nbsp; Frühzeitig anfragen</span>
+          </div>
+        </div>
+      </div>
+      <div class="rv rv-d1">
+        <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="fg">
+            <label class="fl" for="name">Name</label>
+            <input class="fi" type="text" id="name" name="name" placeholder="Ihr vollständiger Name" required>
+          </div>
+          <div class="fg">
+            <label class="fl" for="email">E-Mail</label>
+            <input class="fi" type="email" id="email" name="email" placeholder="sie@organisation.com" required>
+          </div>
+          <div class="fg">
+            <label class="fl" for="org">Organisation</label>
+            <input class="fi" type="text" id="org" name="organisation" placeholder="Optional">
+          </div>
+          <div class="fg">
+            <label class="fl" for="msg">Nachricht</label>
+            <textarea class="ft" id="msg" name="message" placeholder="Schildern Sie mir Ihre Datenherausforderung..." required></textarea>
+          </div>
+          <button class="fb-btn" type="submit">Nachricht senden</button>
+          <p class="form-note">Um das Formular zu aktivieren, registrieren Sie sich bei formspree.io und ersetzen Sie YOUR_FORM_ID im Quellcode.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-brand"><span class="hn-d">Daten</span><span class="hn-v">Value</span> e.U.</span>
+  <span class="f-note">
+    Graz, Österreich &nbsp;·&nbsp; Semantische Datenarchitektur für KI &nbsp;·&nbsp; &copy; 2026
+    &nbsp;&nbsp;<a href="impressum.html" style="color:var(--tx3);transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--tx3)'">Impressum</a>
+  </span>
+</footer>
+
+<script>
+(function(){
+  /* === Knowledge-graph canvas animation === */
+  const cv = document.getElementById('cv');
+  const ctx = cv.getContext('2d');
+  const N = 24, MAX = 190, GOLD = 'rgba(196,163,90,';
+  let W, H, nodes = [];
+
+  function resize() {
+    W = cv.width  = cv.offsetWidth;
+    H = cv.height = cv.offsetHeight;
+  }
+
+  function init() {
+    nodes = Array.from({length:N}, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random()-.5) * .22,
+      vy: (Math.random()-.5) * .22,
+      r:  Math.random() * 1.8 + .8,
+      ph: Math.random() * Math.PI * 2
+    }));
+  }
+
+  function tick(t) {
+    ctx.clearRect(0, 0, W, H);
+    for (const n of nodes) {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+      const a = .18 + .08 * Math.sin(t / 2400 + n.ph);
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+      ctx.fillStyle = GOLD + a + ')';
+      ctx.fill();
+    }
+    for (let i = 0; i < N; i++) {
+      for (let j = i+1; j < N; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const d  = Math.sqrt(dx*dx + dy*dy);
+        if (d < MAX) {
+          const a = (1 - d/MAX) * .075;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = GOLD + a + ')';
+          ctx.lineWidth = .55;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('resize', () => { resize(); }, {passive:true});
+  resize(); init(); requestAnimationFrame(tick);
+
+  /* === Nav scroll class === */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', scrollY > 30);
+  }, {passive:true});
+
+  /* === Scroll reveal === */
+  const els = document.querySelectorAll('.rv');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, {threshold:.1});
+  els.forEach(el => obs.observe(el));
+})();
+</script>
+</body>
+</html>
