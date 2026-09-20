@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DatenValue — Semantic Data Architecture for AI</title>
-<meta name="description" content="Ontology design, knowledge graph architecture, and AI data governance. Senior data architecture consulting by DatenValue e.U., based in Graz, Austria.">
-<meta property="og:title" content="DatenValue — Semantic Data Architecture for AI">
+<title>DatenValue — Data Curation & Readiness</title>
+<meta name="description" content="Data curation, documentation, and readiness for researchers meeting FAIR and funder mandates, social businesses without a data team, and AI systems that depend on well-curated data. DatenValue, based in Graz, Austria.">
+<meta property="og:title" content="DatenValue — Data Curation & Readiness">
 <meta property="og:description" content="Compliant. Interoperable. Usable.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -379,14 +379,13 @@ section { padding:7rem 2rem; }
 #contact { background:var(--s1); }
 .contact-grid {
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:5rem;
-  align-items:start;
+  grid-template-columns:1fr;
+  max-width:620px;
 }
 .contact-email {
   display:block;
   font-family:var(--fd);
-  font-size:clamp(1.1rem,2.2vw,1.65rem);
+  font-size:clamp(1.3rem,2.8vw,1.9rem);
   font-weight:300;
   color:var(--gold);
   letter-spacing:.03em;
@@ -415,59 +414,6 @@ section { padding:7rem 2rem; }
   color:var(--tx3);
 }
 .loc-v { font-size:.875rem; color:var(--tx2); }
-
-/* FORM */
-.form { display:flex; flex-direction:column; gap:1.25rem; }
-.fg { display:flex; flex-direction:column; gap:.45rem; }
-.fl {
-  font-family:var(--fm);
-  font-size:.58rem;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--tx3);
-}
-.fi, .ft {
-  background:var(--bg);
-  border:1px solid var(--br);
-  color:var(--tx1);
-  font-family:var(--fb);
-  font-size:.9rem;
-  font-weight:300;
-  padding:.8rem 1rem;
-  outline:none;
-  width:100%;
-  border-radius:0;
-  -webkit-appearance:none;
-  transition:border-color .2s;
-}
-.fi:focus, .ft:focus { border-color:rgba(196,163,90,.5); }
-.fi::placeholder, .ft::placeholder { color:var(--tx3); }
-.ft { resize:vertical; min-height:110px; }
-.fb-btn {
-  background:transparent;
-  border:1px solid rgba(196,163,90,.35);
-  color:var(--gold);
-  font-family:var(--fb);
-  font-size:.72rem;
-  font-weight:400;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  padding:.95rem 2.25rem;
-  cursor:pointer;
-  align-self:flex-start;
-  transition:background .25s, color .25s, border-color .25s;
-}
-.fb-btn:hover {
-  background:var(--gold);
-  color:var(--bg);
-  border-color:var(--gold);
-}
-.form-note {
-  font-size:.72rem;
-  color:var(--tx3);
-  letter-spacing:.05em;
-  line-height:1.5;
-}
 
 /* FOOTER */
 footer {
@@ -517,7 +463,7 @@ footer {
   .nav-links { display:none; }
   section { padding:5rem 1.25rem; }
   .srv-grid { grid-template-columns:1fr; }
-  .about-grid, .contact-grid { grid-template-columns:1fr; gap:3rem; }
+  .about-grid { grid-template-columns:1fr; gap:3rem; }
   footer { padding:1.5rem 1.25rem; flex-direction:column; align-items:flex-start; }
   .hero-name { letter-spacing:.02em; }
   .hero-sub { letter-spacing:.18em; font-size:.75rem; }
@@ -627,16 +573,16 @@ footer {
           <circle cx="42" cy="20" r="5"   fill="url(#hg3)" filter="url(#hgf)"/>
         </svg>
       </div>
-      <p class="hero-tag">Semantic Data Architecture &nbsp;·&nbsp; Graz, Austria</p>
+      <p class="hero-tag">Data Curation &amp; Readiness &nbsp;·&nbsp; Graz, Austria</p>
     <h1 class="hero-name"><span class="hn-d">Daten</span><span class="hn-v">Value</span></h1>
     <div class="hero-bar"></div>
     <p class="hero-sub">Compliant &nbsp;·&nbsp; Interoperable &nbsp;·&nbsp; Usable</p>
     <div class="hero-pills">
-      <span class="pill">Ontology Design</span>
-      <span class="pill">Knowledge Graphs</span>
-      <span class="pill">Data Governance</span>
-      <span class="pill">RAG Architecture</span>
-      <span class="pill">AI Agents</span>
+      <span class="pill">Data Curation</span>
+      <span class="pill">Provenance &amp; Documentation</span>
+      <span class="pill">Data Dictionaries</span>
+      <span class="pill">FAIR &amp; Compliance</span>
+      <span class="pill">Data Readiness for AI</span>
     </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">
@@ -650,43 +596,43 @@ footer {
   <div class="wrap">
     <div class="srv-head rv">
       <p class="eyebrow">What I do</p>
-      <h2 class="sh">The work that makes<br>AI systems trustworthy</h2>
+      <h2 class="sh">The work that makes<br>data actually usable</h2>
     </div>
     <div class="srv-grid">
 
       <div class="srv-card rv rv-d1">
-        <p class="srv-no">Schema &amp; Ontology</p>
-        <h3 class="srv-title">Ontology &amp;<br>Schema Design</h3>
-        <p class="srv-desc">Designing the conceptual frameworks that give your data meaning. Entity models, relationship structures, taxonomies, and metadata frameworks built for graph-based reasoning and machine discovery — the foundation on which everything else rests.</p>
+        <p class="srv-no">Discovery &amp; Assessment</p>
+        <h3 class="srv-title">Data Discovery<br>&amp; Assessment</h3>
+        <p class="srv-desc">Locating and inventorying the data an organization actually has — including the shadow spreadsheets and half-documented exports — and testing whether it can really answer the question at hand.</p>
         <div class="srv-tags">
-          <span class="tag">OWL</span><span class="tag">RDF</span><span class="tag">SHACL</span><span class="tag">SPARQL</span><span class="tag">Graph models</span>
+          <span class="tag">Data inventory</span><span class="tag">Fitness-for-use</span><span class="tag">Gap analysis</span>
         </div>
       </div>
 
       <div class="srv-card rv rv-d2">
-        <p class="srv-no">Quality &amp; Governance</p>
-        <h3 class="srv-title">Data Quality<br>&amp; Governance</h3>
-        <p class="srv-desc">Establishing the standards that make your data trustworthy. Validation processes, provenance tracking, auditability frameworks, and compliance reviews that satisfy regulators and underpin reliable, explainable AI systems.</p>
+        <p class="srv-no">Curation &amp; Documentation</p>
+        <h3 class="srv-title">Curation &amp;<br>Documentation</h3>
+        <p class="srv-desc">Structuring and describing data, and embedding provenance and data dictionaries, so it can be found, trusted, and reused — by a repository, a report, or someone who wasn't there when it was collected.</p>
         <div class="srv-tags">
-          <span class="tag">Provenance</span><span class="tag">Auditability</span><span class="tag">Compliance</span><span class="tag">Lineage</span>
+          <span class="tag">Provenance</span><span class="tag">Data dictionaries</span><span class="tag">Metadata</span>
         </div>
       </div>
 
       <div class="srv-card rv rv-d1">
-        <p class="srv-no">Classification &amp; Enrichment</p>
-        <h3 class="srv-title">Entity Resolution<br>&amp; Enrichment</h3>
-        <p class="srv-desc">Transforming raw data into structured knowledge. Entity resolution, normalization, controlled vocabularies, and metadata strategies that support both human understanding and machine reasoning — turning noise into signal.</p>
+        <p class="srv-no">Governance &amp; Compliance</p>
+        <h3 class="srv-title">Governance &amp;<br>Compliance Alignment</h3>
+        <p class="srv-desc">Meeting FAIR principles, GDPR, and funder or grantor mandates without losing sight of the people who actually have to use the data day to day.</p>
         <div class="srv-tags">
-          <span class="tag">Entity resolution</span><span class="tag">NER</span><span class="tag">Taxonomies</span><span class="tag">Vocabularies</span>
+          <span class="tag">FAIR</span><span class="tag">GDPR</span><span class="tag">Funder mandates</span>
         </div>
       </div>
 
       <div class="srv-card rv rv-d2">
-        <p class="srv-no">AI &amp; RAG</p>
-        <h3 class="srv-title">AI &amp; RAG<br>Data Architecture</h3>
-        <p class="srv-desc">Preparing data for the systems that depend on it. Structuring knowledge bases, graphs, and retrieval layers so your AI agents, RAG pipelines, and LLMs perform with precision — and can explain what they know and why.</p>
+        <p class="srv-no">Activation</p>
+        <h3 class="srv-title">Activation</h3>
+        <p class="srv-desc">Turning curated data into a decision, a deposited dataset, or a working AI/RAG system. AI is one destination for well-curated data — not the starting point.</p>
         <div class="srv-tags">
-          <span class="tag">RAG</span><span class="tag">Knowledge graphs</span><span class="tag">AI agents</span><span class="tag">LLM grounding</span>
+          <span class="tag">Decisions</span><span class="tag">Repository deposit</span><span class="tag">AI &amp; RAG</span>
         </div>
       </div>
 
@@ -700,21 +646,28 @@ footer {
     <div class="about-grid">
       <div class="rv">
         <p class="eyebrow">About</p>
-        <h2 class="sh">Where precision<br>meets intelligence</h2>
+        <h2 class="sh">Where curation<br>meets purpose</h2>
         <div class="about-body">
-          <p>DatenValue is an independent data architecture practice working at the intersection of ontology engineering, semantic data design, and AI data governance.</p>
-          <p>With over 20 years of experience structuring information for the systems that depend on it, I work with organisations building AI systems, knowledge graphs, and intelligent pipelines where data quality, verifiability, and governance are not optional.</p>
-          <p>Current engagements include government-funded AI and space intelligence programs requiring robust, auditable, and machine-ready data infrastructure.</p>
-          <p>I'm Unmil Karadkar. Behind DatenValue is more than two decades of research into how people and institutions actually use data — moving between computer science, information science, and the humanities, and applying methods from all three across fields as different as neurology, space sustainability, and the digital humanities. Before founding DatenValue, I held faculty positions at the University of Texas at Austin's School of Information (2009–2019) and the University of Graz's Center for Interdisciplinary Research on Aging and Care (2021–2025), and have published more than 50 peer-reviewed articles, chapters, and conference papers — most recently a 2026 special issue of the <em>Journal of Global Ageing</em> on digital surveillance in later life.</p>
+          <p>Most data work centers on whoever receives the data: a repository enforcing a mandate, a funder collecting a report, a system consuming it downstream. Almost nobody helps the person who actually has to produce, curate, and hand it over do that well, and get something useful back for their own purposes in the process. DatenValue is an independent data curation and readiness practice built for that gap, helping organizations get their data into a state where whoever needs it next can actually use it.</p>
+          <p>With over 20 years of experience curating data for the people and systems that depend on it, I work with research groups, mission-driven organizations, and teams building AI systems — wherever data quality, provenance, and usability aren't optional extras.</p>
+          <p>I'm Unmil Karadkar. Behind DatenValue is more than two decades of research into how people and institutions actually use data — moving between computer science, information science, and the humanities, and applying methods from all three to enhance data utility across fields as different as neurology, space sustainability, and the digital humanities. Before founding DatenValue, I held faculty positions at the University of Texas at Austin's School of Information (2009–2019) and the University of Graz's Center for Interdisciplinary Research on Aging and Care (2021–2025), and have published more than 50 peer-reviewed articles, chapters, and conference papers — most recently a 2026 special issue of the <em>Journal of Global Ageing</em> on digital surveillance in later life.</p>
         </div>
         <div class="about-disc">
           <p class="disc-label">Core disciplines</p>
           <div class="disc-items">
-            <div class="disc-item">Semantic web &amp; ontology engineering</div>
-            <div class="disc-item">Knowledge graph architecture</div>
-            <div class="disc-item">Data governance &amp; provenance frameworks</div>
-            <div class="disc-item">Entity resolution &amp; normalisation</div>
-            <div class="disc-item">AI-ready data architecture</div>
+            <div class="disc-item">Data curation &amp; documentation</div>
+            <div class="disc-item">Provenance &amp; data dictionaries</div>
+            <div class="disc-item">FAIR &amp; compliance alignment</div>
+            <div class="disc-item">Multi-source data integration</div>
+            <div class="disc-item">Data readiness for AI &amp; repositories</div>
+          </div>
+        </div>
+        <div class="about-disc">
+          <p class="disc-label">Who this helps</p>
+          <div class="disc-items">
+            <div class="disc-item">Researchers meeting FAIR &amp; funder mandates</div>
+            <div class="disc-item">Social businesses &amp; impact ventures without a data team</div>
+            <div class="disc-item">Organizations building AI systems that depend on curated data</div>
           </div>
         </div>
       </div>
@@ -722,15 +675,15 @@ footer {
         <div class="about-stats rv rv-d1">
           <div class="stat">
             <div class="stat-n">20+</div>
-            <div class="stat-l">Years of data architecture experience</div>
+            <div class="stat-l">Years of data readiness experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">50+</div>
+            <div class="stat-l">Peer-reviewed publications on data curation &amp; use</div>
           </div>
           <div class="stat">
             <div class="stat-n">4</div>
             <div class="stat-l">Core service disciplines</div>
-          </div>
-          <div class="stat">
-            <div class="stat-n">∞</div>
-            <div class="stat-l">Entities correctly resolved</div>
           </div>
         </div>
         <div class="about-geo rv rv-d2">
@@ -751,8 +704,8 @@ footer {
         <p class="eyebrow">Contact</p>
         <h2 class="sh">Start a<br>conversation</h2>
         <p class="sp" style="margin-top:1.5rem;">Engagements begin with a scoping call to understand your data landscape, system goals, and governance requirements. Typical projects run 2–24 months.</p>
-        <a href="mailto:unmil@datenvalue.com" class="contact-email">unmil@datenvalue.com</a>
-        <p class="contact-note">Response within one business day</p>
+        <a href="mailto:unmil@datenvalue.com?subject=Project%20inquiry&amp;body=Hi%20Unmil%2C%0D%0A%0D%0AI'd%20like%20to%20talk%20about%20a%20data%20challenge%3A%0D%0A%0D%0AOrganisation%3A%20%0D%0ATimeline%3A%20%0D%0A%0D%0A" class="contact-email">unmil@datenvalue.com</a>
+        <p class="contact-note">Response within one business day &nbsp;·&nbsp; opens your email client with a starting template</p>
         <div class="contact-locs">
           <div class="loc">
             <span class="loc-k">Location</span>
@@ -764,37 +717,15 @@ footer {
           </div>
         </div>
       </div>
-      <div class="rv rv-d1">
-        <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="fg">
-            <label class="fl" for="name">Name</label>
-            <input class="fi" type="text" id="name" name="name" placeholder="Your full name" required>
-          </div>
-          <div class="fg">
-            <label class="fl" for="email">Email</label>
-            <input class="fi" type="email" id="email" name="email" placeholder="you@organisation.com" required>
-          </div>
-          <div class="fg">
-            <label class="fl" for="org">Organisation</label>
-            <input class="fi" type="text" id="org" name="organisation" placeholder="Optional">
-          </div>
-          <div class="fg">
-            <label class="fl" for="msg">Message</label>
-            <textarea class="ft" id="msg" name="message" placeholder="Tell me about your data challenge..." required></textarea>
-          </div>
-          <button class="fb-btn" type="submit">Send Message</button>
-          <p class="form-note">To activate this form, sign up at formspree.io and replace YOUR_FORM_ID in the source.</p>
-        </form>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="f-brand"><span class="hn-d">Daten</span><span class="hn-v">Value</span> e.U.</span>
+  <span class="f-brand"><span class="hn-d">Daten</span><span class="hn-v">Value</span></span>
   <span class="f-note">
-    Graz, Austria &nbsp;·&nbsp; Semantic Data Architecture for AI &nbsp;·&nbsp; &copy; 2026
+    Graz, Austria &nbsp;·&nbsp; Data Curation &amp; Readiness &nbsp;·&nbsp; &copy; 2026
     &nbsp;&nbsp;<a href="impressum.html" style="color:var(--tx3);transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--tx3)'">Impressum</a>
   </span>
 </footer>
