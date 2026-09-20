@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DatenValue — Semantische Datenarchitektur für KI</title>
-<meta name="description" content="Ontologie-Design, Wissensgraph-Architektur und KI-Daten-Governance. Datenarchitektur-Beratung von DatenValue e.U. mit Sitz in Graz, Österreich.">
-<meta property="og:title" content="DatenValue — Semantic Data Architecture for AI">
+<title>DatenValue — Datenkuratierung &amp; Data Readiness</title>
+<meta name="description" content="Datenkuratierung, Dokumentation und Data Readiness für Forschende mit FAIR- und Förderauflagen, Sozialunternehmen ohne eigene Datenabteilung und KI-Systeme, die auf gut kuratierten Daten aufbauen. DatenValue mit Sitz in Graz, Österreich.">
+<meta property="og:title" content="DatenValue — Datenkuratierung &amp; Data Readiness">
 <meta property="og:description" content="Konform. Interoperabel. Nutzbar.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -379,14 +379,13 @@ section { padding:7rem 2rem; }
 #contact { background:var(--s1); }
 .contact-grid {
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:5rem;
-  align-items:start;
+  grid-template-columns:1fr;
+  max-width:620px;
 }
 .contact-email {
   display:block;
   font-family:var(--fd);
-  font-size:clamp(1.1rem,2.2vw,1.65rem);
+  font-size:clamp(1.3rem,2.8vw,1.9rem);
   font-weight:300;
   color:var(--gold);
   letter-spacing:.03em;
@@ -415,59 +414,6 @@ section { padding:7rem 2rem; }
   color:var(--tx3);
 }
 .loc-v { font-size:.875rem; color:var(--tx2); }
-
-/* FORM */
-.form { display:flex; flex-direction:column; gap:1.25rem; }
-.fg { display:flex; flex-direction:column; gap:.45rem; }
-.fl {
-  font-family:var(--fm);
-  font-size:.58rem;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--tx3);
-}
-.fi, .ft {
-  background:var(--bg);
-  border:1px solid var(--br);
-  color:var(--tx1);
-  font-family:var(--fb);
-  font-size:.9rem;
-  font-weight:300;
-  padding:.8rem 1rem;
-  outline:none;
-  width:100%;
-  border-radius:0;
-  -webkit-appearance:none;
-  transition:border-color .2s;
-}
-.fi:focus, .ft:focus { border-color:rgba(196,163,90,.5); }
-.fi::placeholder, .ft::placeholder { color:var(--tx3); }
-.ft { resize:vertical; min-height:110px; }
-.fb-btn {
-  background:transparent;
-  border:1px solid rgba(196,163,90,.35);
-  color:var(--gold);
-  font-family:var(--fb);
-  font-size:.72rem;
-  font-weight:400;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  padding:.95rem 2.25rem;
-  cursor:pointer;
-  align-self:flex-start;
-  transition:background .25s, color .25s, border-color .25s;
-}
-.fb-btn:hover {
-  background:var(--gold);
-  color:var(--bg);
-  border-color:var(--gold);
-}
-.form-note {
-  font-size:.72rem;
-  color:var(--tx3);
-  letter-spacing:.05em;
-  line-height:1.5;
-}
 
 /* FOOTER */
 footer {
@@ -517,7 +463,7 @@ footer {
   .nav-links { display:none; }
   section { padding:5rem 1.25rem; }
   .srv-grid { grid-template-columns:1fr; }
-  .about-grid, .contact-grid { grid-template-columns:1fr; gap:3rem; }
+  .about-grid { grid-template-columns:1fr; gap:3rem; }
   footer { padding:1.5rem 1.25rem; flex-direction:column; align-items:flex-start; }
   .hero-name { letter-spacing:.02em; }
   .hero-sub { letter-spacing:.18em; font-size:.75rem; }
@@ -627,16 +573,16 @@ footer {
           <circle cx="42" cy="20" r="5"   fill="url(#hg3)" filter="url(#hgf)"/>
         </svg>
       </div>
-      <p class="hero-tag">Semantische Datenarchitektur &nbsp;·&nbsp; Graz, Österreich</p>
+      <p class="hero-tag">Datenkuratierung &amp; Data Readiness &nbsp;·&nbsp; Graz, Österreich</p>
     <h1 class="hero-name"><span class="hn-d">Daten</span><span class="hn-v">Value</span></h1>
     <div class="hero-bar"></div>
     <p class="hero-sub">Konform &nbsp;·&nbsp; Interoperabel &nbsp;·&nbsp; Nutzbar</p>
     <div class="hero-pills">
-      <span class="pill">Ontologie-Design</span>
-      <span class="pill">Wissensgraphen</span>
-      <span class="pill">Daten-Governance</span>
-      <span class="pill">RAG-Architektur</span>
-      <span class="pill">KI-Agenten</span>
+      <span class="pill">Datenkuratierung</span>
+      <span class="pill">Provenienz &amp; Dokumentation</span>
+      <span class="pill">Data Dictionaries</span>
+      <span class="pill">FAIR &amp; Compliance</span>
+      <span class="pill">Data Readiness für KI</span>
     </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">
@@ -650,43 +596,43 @@ footer {
   <div class="wrap">
     <div class="srv-head rv">
       <p class="eyebrow">Leistungen</p>
-      <h2 class="sh">Die Arbeit, die KI-Systeme<br>vertrauenswürdig macht</h2>
+      <h2 class="sh">Die Arbeit, die Daten<br>wirklich nutzbar macht</h2>
     </div>
     <div class="srv-grid">
 
       <div class="srv-card rv rv-d1">
-        <p class="srv-no">Schema &amp; Ontologie</p>
-        <h3 class="srv-title">Ontologie &amp;<br>Schema-Design</h3>
-        <p class="srv-desc">Die konzeptionellen Rahmenwerke entwerfen, die Ihren Daten Bedeutung verleihen. Entitätsmodelle, Beziehungsstrukturen, Taxonomien und Metadaten-Frameworks für graphbasiertes Reasoning und maschinelle Entdeckung — das Fundament, auf dem alles andere aufbaut.</p>
+        <p class="srv-no">Discovery &amp; Assessment</p>
+        <h3 class="srv-title">Daten-Discovery<br>&amp; Assessment</h3>
+        <p class="srv-desc">Die tatsächlich vorhandenen Daten einer Organisation lokalisieren und inventarisieren — einschließlich Schatten-Tabellen und halb dokumentierter Exporte — und prüfen, ob sie die gestellte Frage wirklich beantworten können.</p>
         <div class="srv-tags">
-          <span class="tag">OWL</span><span class="tag">RDF</span><span class="tag">SHACL</span><span class="tag">SPARQL</span><span class="tag">Graphmodelle</span>
+          <span class="tag">Dateninventar</span><span class="tag">Fitness-for-Use</span><span class="tag">Gap-Analyse</span>
         </div>
       </div>
 
       <div class="srv-card rv rv-d2">
-        <p class="srv-no">Qualität &amp; Governance</p>
-        <h3 class="srv-title">Datenqualität<br>&amp; Governance</h3>
-        <p class="srv-desc">Die Standards etablieren, die Ihre Daten vertrauenswürdig machen. Validierungsprozesse, Provenienz-Tracking, Auditierbarkeits-Frameworks und Compliance-Prüfungen, die regulatorische Anforderungen erfüllen und zuverlässige, erklärbare KI-Systeme ermöglichen.</p>
+        <p class="srv-no">Kuratierung &amp; Dokumentation</p>
+        <h3 class="srv-title">Kuratierung &amp;<br>Dokumentation</h3>
+        <p class="srv-desc">Daten strukturieren und beschreiben und dabei Provenienz und Data Dictionaries einbetten, damit sie gefunden, vertraut und wiederverwendet werden können — von einem Repositorium, einem Bericht oder jemandem, der bei der Erhebung nicht dabei war.</p>
         <div class="srv-tags">
-          <span class="tag">Provenienz</span><span class="tag">Auditierbarkeit</span><span class="tag">Compliance</span><span class="tag">Datenherkunft</span>
+          <span class="tag">Provenienz</span><span class="tag">Data Dictionaries</span><span class="tag">Metadaten</span>
         </div>
       </div>
 
       <div class="srv-card rv rv-d1">
-        <p class="srv-no">Klassifizierung &amp; Anreicherung</p>
-        <h3 class="srv-title">Entitätsauflösung<br>&amp; Anreicherung</h3>
-        <p class="srv-desc">Rohdaten in strukturiertes Wissen transformieren. Entitätsauflösung, Normalisierung, kontrollierte Vokabulare und Metadaten-Strategien, die sowohl menschliches Verständnis als auch maschinelles Reasoning unterstützen — aus Rauschen wird Signal.</p>
+        <p class="srv-no">Governance &amp; Compliance</p>
+        <h3 class="srv-title">Governance &amp;<br>Compliance-Ausrichtung</h3>
+        <p class="srv-desc">FAIR-Prinzipien, DSGVO und Förder- bzw. Geberauflagen erfüllen, ohne die Menschen aus dem Blick zu verlieren, die im Alltag tatsächlich mit den Daten arbeiten müssen.</p>
         <div class="srv-tags">
-          <span class="tag">Entitätsauflösung</span><span class="tag">NER</span><span class="tag">Taxonomien</span><span class="tag">Vokabulare</span>
+          <span class="tag">FAIR</span><span class="tag">DSGVO</span><span class="tag">Förderauflagen</span>
         </div>
       </div>
 
       <div class="srv-card rv rv-d2">
-        <p class="srv-no">AI &amp; RAG</p>
-        <h3 class="srv-title">KI &amp; RAG<br>Datenarchitektur</h3>
-        <p class="srv-desc">Daten für die Systeme vorbereiten, die davon abhängen. Wissensdatenbanken, Graphen und Retrieval-Schichten so strukturieren, dass Ihre KI-Agenten, RAG-Pipelines und Sprachmodelle präzise arbeiten — und erklären können, was sie wissen und warum.</p>
+        <p class="srv-no">Aktivierung</p>
+        <h3 class="srv-title">Aktivierung</h3>
+        <p class="srv-desc">Kuratierte Daten in eine Entscheidung, ein hinterlegtes Dataset oder ein funktionierendes KI-/RAG-System verwandeln. KI ist ein mögliches Ziel gut kuratierter Daten — nicht der Ausgangspunkt.</p>
         <div class="srv-tags">
-          <span class="tag">RAG</span><span class="tag">Wissensgraphen</span><span class="tag">KI-Agenten</span><span class="tag">LLM-Verankerung</span>
+          <span class="tag">Entscheidungen</span><span class="tag">Repository-Deposit</span><span class="tag">KI &amp; RAG</span>
         </div>
       </div>
 
@@ -700,21 +646,28 @@ footer {
     <div class="about-grid">
       <div class="rv">
         <p class="eyebrow">Über mich</p>
-        <h2 class="sh">Wo Präzision auf<br>Intelligenz trifft</h2>
+        <h2 class="sh">Wo Kuratierung auf<br>Zweck trifft</h2>
         <div class="about-body">
-          <p>DatenValue ist eine unabhängige Datenarchitektur-Praxis an der Schnittstelle von Ontologie-Engineering, semantischem Daten-Design und KI-Daten-Governance.</p>
-          <p>Mit über 20 Jahren Erfahrung in der Strukturierung von Informationen für die Systeme, die davon abhängen, arbeite ich mit Organisationen zusammen, die KI-Systeme, Wissensgraphen und intelligente Datenpipelines entwickeln – dort, wo Datenqualität, Nachvollziehbarkeit und Governance unverzichtbar sind.</p>
-          <p>Aktuelle Projekte umfassen staatlich finanzierte KI- und Weltraumintelligenz-Programme, die eine robuste, auditierbare und maschinenlesbare Dateninfrastruktur erfordern.</p>
-          <p>Ich bin Unmil Karadkar. Hinter DatenValue stehen mehr als zwei Jahrzehnte Forschung darüber, wie Menschen und Institutionen Daten tatsächlich nutzen — an der Schnittstelle von Informatik, Informationswissenschaft und Geisteswissenschaften, mit Methoden aus allen drei Bereichen, angewandt auf so unterschiedliche Felder wie Neurologie, Weltraum-Nachhaltigkeit und Digital Humanities. Vor der Gründung von DatenValue war ich an der School of Information der University of Texas at Austin (2009–2019) und am Center for Interdisciplinary Research on Aging and Care der Universität Graz (2021–2025) tätig und habe mehr als 50 begutachtete Artikel, Buchkapitel und Konferenzbeiträge veröffentlicht — zuletzt in einer Sonderausgabe des <em>Journal of Global Ageing</em> 2026 zu digitaler Überwachung im höheren Lebensalter.</p>
+          <p>Datenarbeit dreht sich meist um die Seite, die die Daten empfängt: ein Repositorium mit einer Auflage, ein Fördergeber, der einen Bericht einfordert, ein System, das die Daten nachgelagert verarbeitet. Fast niemand hilft der Person, die die Daten tatsächlich erstellen, kuratieren und übergeben muss, das gut zu tun und dabei selbst etwas Brauchbares zurückzubekommen. DatenValue ist eine unabhängige Praxis für Datenkuratierung und Data Readiness, die genau für diese Lücke gebaut ist: Sie hilft Organisationen, ihre Daten in einen Zustand zu bringen, in dem sie von den nächsten Nutzer:innen tatsächlich verwendet werden können.</p>
+          <p>Mit über 20 Jahren Erfahrung in der Kuratierung von Daten für die Menschen und Systeme, die davon abhängen, arbeite ich mit Forschungsgruppen, mission-getriebenen Organisationen und Teams zusammen, die KI-Systeme entwickeln – überall dort, wo Datenqualität, Provenienz und Nutzbarkeit keine Kür sind.</p>
+          <p>Ich bin Unmil Karadkar. Hinter DatenValue stehen mehr als zwei Jahrzehnte Forschung darüber, wie Menschen und Institutionen Daten tatsächlich nutzen — an der Schnittstelle von Informatik, Informationswissenschaft und Geisteswissenschaften, mit Methoden aus allen drei Bereichen, um den Nutzwert von Daten zu steigern, angewandt auf so unterschiedliche Felder wie Neurologie, Weltraum-Nachhaltigkeit und Digital Humanities. Vor der Gründung von DatenValue war ich an der School of Information der University of Texas at Austin (2009–2019) und am Center for Interdisciplinary Research on Aging and Care der Universität Graz (2021–2025) tätig und habe mehr als 50 begutachtete Artikel, Buchkapitel und Konferenzbeiträge veröffentlicht — zuletzt in einer Sonderausgabe des <em>Journal of Global Ageing</em> 2026 zu digitaler Überwachung im höheren Lebensalter.</p>
         </div>
         <div class="about-disc">
           <p class="disc-label">Kernkompetenzen</p>
           <div class="disc-items">
-            <div class="disc-item">Semantic Web &amp; Ontologie-Engineering</div>
-            <div class="disc-item">Wissensgraph-Architektur</div>
-            <div class="disc-item">Daten-Governance &amp; Provenienz-Frameworks</div>
-            <div class="disc-item">Entitätsauflösung &amp; Normalisierung</div>
-            <div class="disc-item">KI-bereite Datenarchitektur</div>
+            <div class="disc-item">Datenkuratierung &amp; Dokumentation</div>
+            <div class="disc-item">Provenienz &amp; Data Dictionaries</div>
+            <div class="disc-item">FAIR &amp; Compliance-Ausrichtung</div>
+            <div class="disc-item">Multi-Quellen-Datenintegration</div>
+            <div class="disc-item">Data Readiness für KI &amp; Repositorien</div>
+          </div>
+        </div>
+        <div class="about-disc">
+          <p class="disc-label">Wem das hilft</p>
+          <div class="disc-items">
+            <div class="disc-item">Forschende mit FAIR- &amp; Förderauflagen</div>
+            <div class="disc-item">Sozialunternehmen &amp; Impact-Ventures ohne eigene Datenabteilung</div>
+            <div class="disc-item">Organisationen, die KI-Systeme auf Basis kuratierter Daten entwickeln</div>
           </div>
         </div>
       </div>
@@ -722,15 +675,15 @@ footer {
         <div class="about-stats rv rv-d1">
           <div class="stat">
             <div class="stat-n">20+</div>
-            <div class="stat-l">Jahre Erfahrung in der Datenarchitektur</div>
+            <div class="stat-l">Jahre Erfahrung in Data Readiness</div>
+          </div>
+          <div class="stat">
+            <div class="stat-n">50+</div>
+            <div class="stat-l">Begutachtete Publikationen zu Datenkuratierung &amp; -nutzung</div>
           </div>
           <div class="stat">
             <div class="stat-n">4</div>
             <div class="stat-l">Kernleistungsbereiche</div>
-          </div>
-          <div class="stat">
-            <div class="stat-n">∞</div>
-            <div class="stat-l">Korrekt aufgelöste Entitäten</div>
           </div>
         </div>
         <div class="about-geo rv rv-d2">
@@ -751,8 +704,8 @@ footer {
         <p class="eyebrow">Kontakt</p>
         <h2 class="sh">Gespräch<br>beginnen</h2>
         <p class="sp" style="margin-top:1.5rem;">Projekte beginnen mit einem Erstgespräch, um Ihre Datenlandschaft, Systemziele und Governance-Anforderungen zu verstehen. Typische Projekte dauern 2–24 Monate.</p>
-        <a href="mailto:unmil@datenvalue.com" class="contact-email">unmil@datenvalue.com</a>
-        <p class="contact-note">Antwort innerhalb eines Werktages</p>
+        <a href="mailto:unmil@datenvalue.com?subject=Projektanfrage&amp;body=Hallo%20Unmil%2C%0D%0A%0D%0Aich%20m%C3%B6chte%20%C3%BCber%20folgende%20Datenherausforderung%20sprechen%3A%0D%0A%0D%0AOrganisation%3A%20%0D%0AZeitrahmen%3A%20%0D%0A%0D%0A" class="contact-email">unmil@datenvalue.com</a>
+        <p class="contact-note">Antwort innerhalb eines Werktages &nbsp;·&nbsp; öffnet Ihr E-Mail-Programm mit einer Vorlage</p>
         <div class="contact-locs">
           <div class="loc">
             <span class="loc-k">Standort</span>
@@ -764,37 +717,15 @@ footer {
           </div>
         </div>
       </div>
-      <div class="rv rv-d1">
-        <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="fg">
-            <label class="fl" for="name">Name</label>
-            <input class="fi" type="text" id="name" name="name" placeholder="Ihr vollständiger Name" required>
-          </div>
-          <div class="fg">
-            <label class="fl" for="email">E-Mail</label>
-            <input class="fi" type="email" id="email" name="email" placeholder="sie@organisation.com" required>
-          </div>
-          <div class="fg">
-            <label class="fl" for="org">Organisation</label>
-            <input class="fi" type="text" id="org" name="organisation" placeholder="Optional">
-          </div>
-          <div class="fg">
-            <label class="fl" for="msg">Nachricht</label>
-            <textarea class="ft" id="msg" name="message" placeholder="Schildern Sie mir Ihre Datenherausforderung..." required></textarea>
-          </div>
-          <button class="fb-btn" type="submit">Nachricht senden</button>
-          <p class="form-note">Um das Formular zu aktivieren, registrieren Sie sich bei formspree.io und ersetzen Sie YOUR_FORM_ID im Quellcode.</p>
-        </form>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="f-brand"><span class="hn-d">Daten</span><span class="hn-v">Value</span> e.U.</span>
+  <span class="f-brand"><span class="hn-d">Daten</span><span class="hn-v">Value</span></span>
   <span class="f-note">
-    Graz, Österreich &nbsp;·&nbsp; Semantische Datenarchitektur für KI &nbsp;·&nbsp; &copy; 2026
+    Graz, Österreich &nbsp;·&nbsp; Datenkuratierung &amp; Data Readiness &nbsp;·&nbsp; &copy; 2026
     &nbsp;&nbsp;<a href="impressum.html" style="color:var(--tx3);transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--tx3)'">Impressum</a>
   </span>
 </footer>
